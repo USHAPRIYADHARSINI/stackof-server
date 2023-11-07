@@ -2,7 +2,6 @@ import express from "express";
 const router = express.Router();
 import * as dotenv from "dotenv";
 dotenv.config();
-import { auth } from "../middleware/auth.js";
 import crypto from "crypto";
 import { getQuestionById } from "../Services/questions.services.js";
 import { AddAnswer, DeleteAnswer, EditAnswer, getAllAnswer, getAnswerById, getAnswerByQuestionId } from "../Services/answers.services.js";

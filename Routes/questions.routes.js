@@ -2,7 +2,6 @@ import express from "express";
 const router = express.Router();
 import * as dotenv from "dotenv";
 dotenv.config();
-import { auth } from "../middleware/auth.js";
 import crypto from "crypto";
 import {
   AddAnsToQues,
@@ -27,7 +26,7 @@ import {
 //     vote:'',
 // }
 
-router.post("/create", auth , async function (request, response) {
+router.post("/create", async function (request, response) {
   //✔️
   const { question, tags, user, title } = request.body;
   const id = crypto.randomBytes(16).toString("hex");
@@ -57,7 +56,7 @@ router.post("/create", auth , async function (request, response) {
   }
 });
 
-router.patch("/:id/edit",auth, async function (request, response) {
+router.patch("/:id/edit", async function (request, response) {
   //✔️
   const { question, tags, title } = request.body;
   const { id } = request.params;
@@ -201,7 +200,7 @@ router.get("/:id/get", async function (request, response) {
   }
 });
 
-router.delete("/:id/delete",auth, async function (request, response) {
+router.delete("/:id/delete", async function (request, response) {
   //✔️
   const { id } = request.params;
   const companyFromDb = await getQuestionById(id);

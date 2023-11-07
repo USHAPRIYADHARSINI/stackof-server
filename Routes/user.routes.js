@@ -16,7 +16,6 @@ import {
 } from "../Services/user.services.js";
 dotenv.config();
 import nodemailer from "nodemailer";
-import { auth } from "../middleware/auth.js";
 import crypto from "crypto";
 
 async function genHashedPassword(password) {
